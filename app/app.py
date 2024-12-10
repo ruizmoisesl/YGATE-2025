@@ -1,7 +1,11 @@
 from flask import Flask
-from routes import information, statistics
+from routes import index,information, statistics
 
 app = Flask(__name__)
+
+@app.route('/')
+def index_route():
+    return  index.index()
 
 @app.route('/information')
 def information_route():
