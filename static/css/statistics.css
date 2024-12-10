@@ -1,0 +1,127 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: auto;
+}
+
+.search{
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(238, 234, 234);
+    border-bottom-left-radius:50px ;
+    border-bottom-right-radius:50px ;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content .content-graphic img{
+    width: 30%;
+    height: 30%;
+    object-fit: contain;
+}
+
+.search button{
+    outline: none;
+    border: none;
+    background: black;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.search input{
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    width: 20%;
+    margin: 20px;
+}
+
+.search input:hover{
+    border: 2px solid black ;
+    transition: all 0.5s ease-in-out ;
+}
+
+.search input:active, .search input:focus{
+    padding: 12px;
+    border: 2px solid black ;
+}
+
+.aside{
+    display: flex;
+    margin-top: 10vh;
+    gap: 20px 10px;
+}
+
+.aside .options, .graphics{
+    display: flex;
+    flex-direction: column;
+    justify-content: start  ;
+
+}
+
+.options button{
+    margin-top: 3px;
+}
+
+.options button, .graphics button{
+    background: none;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.options button:hover, .graphics button:hover{
+    background: rgba(0, 0, 0, 0.658);
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out ;
+} 
+
+.options button:active, .options button:focus {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+}
+
+.graphics button:active, .graphics button:focus {
+    background: rgba(0, 0, 0, 0.658);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.line{
+    width: 1px;
+    background-color: black;
+}
+
+.graphics button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons-graphic{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}

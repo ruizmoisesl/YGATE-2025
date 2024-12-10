@@ -3,7 +3,7 @@ from routes import index,information, statistics
 
 app = Flask(__name__)
 
-@app.route('/information')
+@app.route('/profile')
 def information_route():
     return information.information()
 
