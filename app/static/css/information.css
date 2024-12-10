@@ -1,0 +1,82 @@
+.company-information{
+    width: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid black;
+}
+
+.container-information{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    justify-items: center;
+    width: 100% ;
+    margin: 0 auto;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.container-information .logo img{
+    width: 100px;
+}
+
+.container-information .logo .logo-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.company-information .options button{
+    background-color: black;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+/*Billing information*/
+
+.billing-information{
+    width: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.billing-information h1{
+    font: bold;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.billing-information .information{
+    width: 90%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.billing-information .information div{
+    display: flex;
+    padding: 5px;
+}
+
+
+.billing-information span{
+    width: 3px;
+    height: 200px;
+    background-color: black;
+    border-radius: 40px;
+}

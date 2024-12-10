@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/information.css') }}">
+    <title>Perfil </title>
+</head>
+<body>
+    {% include 'components/header.html' %}
+    <section class="company-information">
+        <div class="container-information">
+            <div class="information">
+                <h2>Nombre Empresa</h2>
+                <p>Categoria Empresa</p>
+            </div>
+            <div class="logo">
+                <div class="logo-info">
+                    <img src="{{ url_for('static', filename='img/user-circle.svg') }}" alt="Nombre Empresa">
+                    <p>Nombre Empresa</p>
+                </div>
+            </div>
+        </div>
+        <div class="options">
+            <button>Agregar Producto</button>
+            <button>Editar Producto</button>
+            <button>Eliminar Producto</button>
+        </div>
+    </section>
+    <section class="billing-information">
+        <h1>Datos de pago y suscripción</h1>
+        <div class="information">
+            <article class="datos">
+                <div>
+                    <strong>suscripción: </strong>
+                    <p>Plan Gratuito</p>
+                </div>
+                <div>
+                    <strong>Gmail: </strong>
+                    <p>empresa@gmail.com</p>
+                </div>
+                <div>
+                    <strong>Telefono: </strong>
+                    <p>3027496671</p>
+                </div>
+                <div>
+                    <strong>Administrador: </strong>
+                    <p>Nombre Administrador</p>
+                </div>
+                <div>
+                    <strong>Creada Desde: </strong>
+                    <p>07/06/2024</p>
+                </div>
+            </article>
+            <span class="line"></span>
+            <article class="pay">
+                <div>
+                    <strong>Plan precio: </strong>
+                    <p>$0.00</p>
+                </div>
+                <div>
+                    <strong>Proximo Pago: </strong>
+                    <p>n/c</p>
+                </div>
+                <div>
+                    <strong>Tipo de pago: </strong>
+                    <p>07/07/2024</p>
+                </div>
+                <div>
+                    <strong>Tiempo limite: </strong>
+                    <p>07/07/2024</p>
+                </div>
+            </article>
+        </div>
+
+    </section>
+</body>
+</html>
