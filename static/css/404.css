@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-404 {
+    text-align: center;
+}
+
+.error-svg {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.error-svg circle {
+    fill: none;
+    stroke: #666;
+    stroke-width: 4;
+}
+
+.error-svg text {
+    font-size: 48px;
+    font-weight: bold;
+    fill: #666;
+}
+
+.message {
+    font-size: 18px;
+    color: #333;
+}
