@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Categorías</title>
+    <style>
+        /* Estilos para centrar y dar formato al carrusel */
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f7e8;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Flechas de navegación */
+        .arrow {
+            font-size: 24px;
+            cursor: pointer;
+            margin: 0 15px;
+            user-select: none;
+        }
+
+        /* Contenedor de las palabras en el carrusel */
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 400px; /* Ajusta el ancho del carrusel */
+        }
+
+        /* Cada elemento del carrusel */
+        .carousel-item {
+            min-width: 100px;
+            text-align: center;
+            transition: transform 0.5s ease;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <span class="arrow" onclick="prevItem()">&#10094;</span> <!-- Flecha Izquierda -->
+        
+        <div class="carousel" id="carousel">
+            <div class="carousel-item">CATEGORÍA 1</div>
+            <div class="carousel-item">CATEGORÍA 2</div>
+            <div class="carousel-item">CATEGORÍA 3</div>
+            <div class="carousel-item">CATEGORÍA 4</div>
+            <div class="carousel-item">CATEGORÍA 4</div>
+            <div class="carousel-item">CATEGORÍA 4</div>
+        </div>
+        
+        <span class="arrow" onclick="nextItem()">&#10095;</span> <!-- Flecha Derecha -->
+    </div>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            // Calcula el desplazamiento en función del índice actual
+            const offset = -currentIndex * items[0].offsetWidth;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+
+        function nextItem() {
+            // Avanza al siguiente elemento, o vuelve al primero si está al final
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        }
+
+        function prevItem() {
+            // Retrocede al elemento anterior, o va al último si está en el primero
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        }
+    </script>
+
+</body>
+</html>
+
+
+

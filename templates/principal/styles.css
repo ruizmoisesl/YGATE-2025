@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Lalezar&family=Nerko+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fdfde5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #000000;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.logo {
+    font-size: 24px;
+}
+
+ a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Judson", serif;
+    font-size: 20px;
+    
+}
+.nombreE{
+    position: relative;
+    top: 80px;
+    color: #000000;
+    width: 100%;
+    justify-items: center;
+}
+.flechas-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+  }
+
+  .categoria-container {
+    overflow-x: hidden;
+    white-space: nowrap;
+    width: 845px; 
+    display: inline-block;
+
+
+  }
+
+  .categoria {
+    display: inline-block;
+    padding: 15px; /* Aumenta el relleno de las categorías */
+    text-align: center;
+    min-width: 120px; /* Aumenta el ancho mínimo de las categorías */
+    margin-right: 20px; /* Aumenta el espacio entre las categorías */
+    background-color: #f1f1f100;
+    border-radius: 5px;
+    font-family: "Judson", serif;
+
+  }
+  .flecha {
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    color: black; 
+    padding: 12px 18px;
+    border-radius: 50%;
+  }
+  .categorias{
+    position: relative;
+    top: 150px;
+    justify-items: center;
+    flex-wrap: wrap;
+  }
+  .productos{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 250px;
+    gap: 40px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .targeta{
+    width: 20%;
+    height: 260px;
+    background-color: rgb(0, 0, 0);
+    justify-items: center;
+    align-content: center;
+    border-radius: 10px;
+  }
+  .targeta img {
+    width: 130px;
+    
+  }
+  .productos p {
+    color: #fdfde5;
+  }
+  .nombre p{
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+  }
+  .precio p{
+    position: relative;
+    top: 20px;
+  }
+  .espacio{
+    position: relative;
+    height: 100px;
+    background-color: #333;
+    top: 400px;
+  }
+  .categoriaP{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    left: 70px;
+    bottom: 30px;
+  }
+  .targetas{
+    position: relative;
+    display: flex;
+    justify-content:left;
+    gap: 40px;
+    flex-wrap: wrap;
+    left: 70px;
+    
+  }
+  .categoriaP h3{
+    position: relative;
+    justify-content: end;
+    top: 4px;
+    left: 1000px;
+  }
+  .targeta:hover{
+    background-image: url(ojo.svg);
+    background-color: #00000049;
+    background-size: cover;
+    transition:  0.9s ease;
+  }
