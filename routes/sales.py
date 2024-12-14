@@ -1,4 +1,4 @@
 from flask import render_template, url_for, redirect, request
 
-def index():
-    return render_template('information.html')
+def sales():
+    return render_template('sales.html')

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Negocio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+</head>
+<body>
+  <header>
+    {% include 'components/header.html' %}
+  </header>
+  <div class="nombreE">
+    <h1>TU NEGOCIO</h1>
+  </div>
+  <div class="contenido">
+
+    <div class="categorias">
+      <div class="flechas-container">
+        <span class="flecha" onclick="desplazarIzquierda()">&#10094;</span> <!-- Símbolo de flecha izquierda -->
+        <div class="categoria-container" id="listaCategorias">
+          {% for i in range(1, 8 ,1) %}
+          <div class="categoria">Categoría {{i}}</div>
+          {% endfor %}
+      </div>
+      <span class="flecha" onclick="desplazarDerecha()">&#10095;</span> 
+    </div>
+  </div>
+  <div class="productos">
+    <div class="categoriaP">
+      <h2>Categoría</h2>
+      <h3>Ver mas</h3>
+    </div>
+    <div class="targetas">
+      {% for i in range (12) %}
+      <div class="targeta">
+        <img src="{{ url_for('static', filename='img/deTodito.png') }}" alt="">
+        <div class="nombre">
+          <p>DeTodito</p>
+        </div>
+        <div class="precio">
+          <p>$3000</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+  </div>
+  <div class="espacio">
+    
+  </div>
+
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

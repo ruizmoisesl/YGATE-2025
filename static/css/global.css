@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Lalezar&family=Nerko+One&display=swap');
+
 * {
     padding: 0;
     margin: 0;
+    font-weight: bold;
+    font-family: "Judson", serif;
 }
 
 body {
@@ -8,14 +12,27 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #fdfde5;
+    color: #333;
+    overflow-x: hidden;
 }
 
 header {
     background: black;
-    width: 100%;
+    width: 100vw;
     display: flex;
     height: 60px;
     z-index: 99;
+}
+
+header a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Judson", serif;
+    font-size: 20px;
+    
 }
 
 header .hamburger {
@@ -32,7 +49,7 @@ header .hamburger button {
     width: 100%;
 }
 
-header .content {
+header .content-header {
     display: flex;
     width: 100%;
 }

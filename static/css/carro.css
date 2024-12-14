@@ -1,0 +1,34 @@
+/* Estilos para centrar y dar formato al carrusel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f7e8;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Flechas de navegación */
+.arrow {
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 15px;
+    user-select: none;
+}
+
+/* Contenedor de las palabras en el carrusel */
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 400px; /* Ajusta el ancho del carrusel */
+}
+
+/* Cada elemento del carrusel */
+.carousel-item {
+    min-width: 100px;
+    text-align: center;
+    transition: transform 0.5s ease;
+    font-weight: bold;
+    opacity: 0.8;
+}

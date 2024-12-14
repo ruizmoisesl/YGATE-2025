@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sales.css') }}">
+    <title>Estadisticas - Nombre Empresa</title>
+</head>
+
+<body>
+    <header>
+        {% include 'components/header.html' %}
+    </header>
+    <main>
+        <div class="search">
+            <input type="text">
+            <input type="number" min="0" max="99">
+            <input type="search">
+            <button>BUSCAR</button>
+        </div>
+        <section class="content">
+            <div class="aside">
+                <div class="options">
+                    <button>Hoy</button>
+                    <button>Semana</button>
+                    <button>Mes</button>
+                    <button>Año</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Método de Pago</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range (10) %}
+                        <tr>
+                            <td>Celular</td>
+                            <td>250000</td>
+                            <td>1</td>
+                            <td>Efectivo</td>
+                            <td>250000</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
