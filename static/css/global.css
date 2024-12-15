@@ -21,6 +21,7 @@ header {
     background: black;
     width: 100vw;
     display: flex;
+    flex-direction: row;
     height: 60px;
     z-index: 99;
 }
@@ -85,15 +86,15 @@ nav a {
         display: block;
     }
 
-    header .content {
+    header .content-header {
         display: none;
     }
 
-    .content {
+    .content-header {
         display: none;
     }
 
-    .content.show {
+    .content-header.show {
         display: block;
         position: absolute;
         top: 60px;
@@ -103,7 +104,7 @@ nav a {
         padding: 20px;
     }
 
-    .content a {
+    .content-header a {
         display: block;
         padding: 10px;
         border-bottom: 1px solid white;
