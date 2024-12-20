@@ -1,5 +1,5 @@
 from flask import Flask
-from routes import index,login,register,home,information, statistics, sales,errors
+from routes import index,login,register,home,information, statistics, sales,decode,errors
 
 app = Flask(__name__)
 
@@ -30,6 +30,13 @@ def statistics_route():
 @app.route('/sales')
 def sales_route():
     return sales.sales()
+
+@app.route('/decode', methods=['GET', 'POST'])
+def decode_route(code):
+    if code:   
+        return decode.decode(code)
+    else:
+        return decode.decode(code = '6928804011128')
 
 @app.errorhandler(404)
 def page_not_found(e):

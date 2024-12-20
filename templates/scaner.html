@@ -10,7 +10,7 @@
     <video id="video" width="600" height="400" autoplay></video>
     <script>
         const video = document.getElementById('video');
-        navigator.mediaDevices.getUser Media({ video: true })
+        navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
                 video.srcObject = stream;
             });

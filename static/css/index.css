@@ -31,9 +31,17 @@ header{
 
 header div{
     width: 100%;
-    margin: 4px;
+    height: auto;
     display: flex;
-    justify-content: start;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: -100px;
+}
+
+#home {
+    display: flex;
+    align-items: center; /* Alinea los elementos dentro del botón verticalmente */
+    justify-content: center; /* Alinea los elementos dentro del botón horizontalmente */
 }
 
 header div button{
@@ -43,11 +51,25 @@ header div button{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    background: none;
+}
+
+header div img{
+    width: 20%;
+    height: 20%;
+    margin: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    object-fit: contain;
 }
 
 header div h1{
     font-weight: bold;
     color: black;
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-left: -5px;
 }
 
 header nav{

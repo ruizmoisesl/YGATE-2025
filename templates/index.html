@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Y'GATE MANAGER</title>
 </head>
 <body>
     <header>
         <div>
             <button id="home">
-                <img src="" alt="">
+                <img src="{{ url_for('static', filename='img/icons/icono.png') }}" alt="">
                 <h1>MANAGER</h1>
             </button>
         </div>
