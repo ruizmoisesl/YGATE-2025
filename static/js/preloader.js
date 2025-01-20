@@ -1,11 +1,8 @@
-document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
     if (typeof $ !== 'undefined') {
         $('#preloader').fadeOut();
         $('body').removeClass('hidden');
+    } else {
+      console.error('jQuery no está cargado.');
     }
-}) : function () {
-    if (typeof $ !== 'undefined') {
-        $('#preloader').fadeOut();
-        $('body').removeClass('hidden');
-    }
-}();
+  }
