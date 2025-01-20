@@ -11,6 +11,7 @@ def index_route():
 def login_route():
     return login.login()
 
+
 @app.route('/register')
 def register_route():
     return register.register()
