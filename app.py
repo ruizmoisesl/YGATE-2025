@@ -1,5 +1,5 @@
 from flask import Flask , render_template
-from routes import index,login,register,home,information, statistics, sales,decode,errors
+from routes import index,login,register,home,information, statistics, sales,decode,productos,errors
 
 app = Flask(__name__)
 
@@ -42,13 +42,10 @@ def decode_route(code):
 def page_not_found(e):
     return errors.error_not_found(e)
 
-@app.errorhandler(TypeError)
-def handler_error(error):
-    return errors.handle_type_error(error)
 
 @app.route("/productos")
-def productos():
-    return render_template("productos.html")
+def productos_route():
+    return productos.productos()
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000)
