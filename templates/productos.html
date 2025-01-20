@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Negocio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
 </head>
 <body>
   <header>
-      <div class="logo"></div>
-      <nav>
-          <a href="#">Productos</a>
-          <a href="#">Ventas</a>
-          <a href="#">Estadísticas</a>
-      </nav>
+    {% include 'components/header.html'   %}
   </header>
   <div class="nombreE">
     <h1>TU NEGOCIO</h1>
@@ -24,28 +20,25 @@
       <div class="flechas-container">
         <span class="flecha" onclick="desplazarIzquierda()">&#10094;</span> 
         <div class="categoria-container" id="listaCategorias">
-          <div class="categoria">Categoría 1</div>
-          <div class="categoria">Categoría 2</div>
-          <div class="categoria">Categoría 3</div>
-          <div class="categoria">Categoría 4</div>
-          <div class="categoria">Categoría 5</div>
-          <div class="categoria">Categoría 6</div>
-          <div class="categoria">Categoría 7</div>
-          <div class="categoria">Categoría 8</div>
-          <div class="categoria">Categoría 9</div>
-          <div class="categoria">Categoría 10</div>
+          {% for i in range(1, 8 ,1) %}
+          <div class="categoria">Categoría {{i}}</div>
+          {% endfor %}
         </div>
         <span class="flecha" onclick="desplazarDerecha()">&#10095;</span> 
       </div>
     </div>
 
     <div class="productos">
-      <div class="agregar"><h1>+</h1></div>
-      <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></div>
-      <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
-
-      <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Buscar por nombre o código" class="busqueda">
-
+      <div class="header-productos"> 
+        <div class="buscador">
+          <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Buscar por nombre o código" class="busqueda">
+        </div>
+        <div class="opciones-productos">
+          <div class="agregar"><h1>+</h1></div>
+          <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></div>
+          <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
+        </div>
+      </div>
       <table>
         <thead>
           <tr>
@@ -116,7 +109,7 @@
     }
 
     function filterTable() {
-        var input, filter, table, tr, td, i, j, txtValue;
+        let input, filter, table, tr, td, i, j, txtValue;
         input = document.getElementById("searchInput");
         filter = input.value.toLowerCase();
         table = document.querySelector("table");
