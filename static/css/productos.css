@@ -176,5 +176,17 @@ td {
     background-color: #333;
     top: 400px;
   }
-
+.busqueda {
+  background-color: #33333300;
+  position: absolute;
+  width: 500px;
+  height: 40px;
+  right: 715px;
+  top: -48px;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 5px;
+  outline: none;
+  border-radius: 10px;
+}
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Negocio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
 </head>
 <body>
   <header>
@@ -28,22 +28,26 @@
           <div class="categoria">Categoría 2</div>
           <div class="categoria">Categoría 3</div>
           <div class="categoria">Categoría 4</div>
-        <div class="categoria">Categoría 5</div>
-        <div class="categoria">Categoría 6</div>
-        <div class="categoria">Categoría 7</div>
-        <div class="categoria">Categoría 8</div>
-        <div class="categoria">Categoría 9</div>
-        <div class="categoria">Categoría 10</div>
+          <div class="categoria">Categoría 5</div>
+          <div class="categoria">Categoría 6</div>
+          <div class="categoria">Categoría 7</div>
+          <div class="categoria">Categoría 8</div>
+          <div class="categoria">Categoría 9</div>
+          <div class="categoria">Categoría 10</div>
+        </div>
+        <span class="flecha" onclick="desplazarDerecha()">&#10095;</span> 
       </div>
-      <span class="flecha" onclick="desplazarDerecha()">&#10095;</span> 
     </div>
-  </div>
-  <div class="productos">
-    <div class="agregar"><h1>+</h1></div>
-    <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></div>
-    <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
-    <table>
-      <thead>
+
+    <div class="productos">
+      <div class="agregar"><h1>+</h1></div>
+      <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></div>
+      <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
+
+      <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Buscar por nombre o código" class="busqueda">
+
+      <table>
+        <thead>
           <tr>
               <th>Código de Producto</th>
               <th>Nombre</th>
@@ -53,8 +57,8 @@
               <th>Precio</th>
               <th>Stock</th>
           </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody id="productTableBody">
           <tr>
               <td>001</td>
               <td>Producto A</td>
@@ -73,9 +77,21 @@
               <td>$18.00</td>
               <td>50</td>
           </tr>
-      </tbody>
-  </table>
+          <tr>
+            <td>003</td>
+            <td>logitech g302</td>
+            <td>mouse</td>
+            <td>inalambrico</td>
+            <td>$15.00</td>
+            <td>$18.00</td>
+            <td>50</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
+
   <div class="espacio">
     
   </div>
@@ -85,18 +101,45 @@
       button.addEventListener('click', () => {
           alert('Navegar entre categorías');
       });
-  });
-  function desplazarIzquierda() {
-      const contenedor = document.getElementById('listaCategorias');
-      const anchoCategoria = document.querySelector('.categoria').offsetWidth + 20; 
-      contenedor.scrollBy({ left: -anchoCategoria, behavior: 'smooth' }); 
+    });
+
+    function desplazarIzquierda() {
+        const contenedor = document.getElementById('listaCategorias');
+        const anchoCategoria = document.querySelector('.categoria').offsetWidth + 20; 
+        contenedor.scrollBy({ left: -anchoCategoria, behavior: 'smooth' }); 
     }
-  
+
     function desplazarDerecha() {
-      const contenedor = document.getElementById('listaCategorias');
-      const anchoCategoria = document.querySelector('.categoria').offsetWidth + 20; 
-      contenedor.scrollBy({ left: anchoCategoria, behavior: 'smooth' }); 
+        const contenedor = document.getElementById('listaCategorias');
+        const anchoCategoria = document.querySelector('.categoria').offsetWidth + 20; 
+        contenedor.scrollBy({ left: anchoCategoria, behavior: 'smooth' }); 
+    }
+
+    function filterTable() {
+        var input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toLowerCase();
+        table = document.querySelector("table");
+        tr = table.getElementsByTagName("tr");
+
+
+        for (i = 1; i < tr.length; i++) {
+            tr[i].style.display = "none"; 
+            td = tr[i].getElementsByTagName("td");
+
+
+            for (j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = ""; 
+                        break; 
+                    }
+                }
+            }
+        }
     }
   </script>
+
 </body>
 </html>
