@@ -8,36 +8,17 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Estadisticas - Nombre Empresa</title>
 </head>
-<body>
+<body class="hidden">
+    <div class="preloader">
+        {% include 'components/preloader.html'   %}
+    </div>
     <header>
         {% include 'components/header.html' %}
     </header>
     <main>
-        <div class="search">
-            <input type="search">
-            <button>BUSCAR</button>
-        </div>
-        <section class="content">
-            <div class="aside">
-                <div class="options">
-                    <button>Diario</button>
-                    <button>Semanal</button>
-                    <button>Mensual</button>
-                    <button>Anual</button>
-                    <button>Personalizado</button>
-                </div>
-                <span class="line"></span>
-                <div class="graphics">
-                    <button><img src="{{ url_for('static', filename='img/icons/grafico.png') }}" alt="" class="icons-graphic"></button>
-                    <button><img src="{{ url_for('static', filename='img/icons/grafico.png') }}" alt="" class="icons-graphic"></button>
-                    <button><img src="{{ url_for('static', filename='img/icons/grafico-de-barras.png') }}" alt="" class="icons-graphic"></button>
-                    <button><img src="{{ url_for('static', filename='img/icons/grafico-circular.png') }}" alt="" class="icons-graphic"></button>
-                </div>
-            </div>
-            <div class="content-graphic">
-                <img src="{{ url_for('static', filename='img/icons/grafico-circular.png') }}" alt="">
-            </div>
-        </section>
+        <img src="{{ url_for('static', filename='img/icons/ygate.svg') }}" alt="" style="border-radius: 20%; box-shadow: 0px 0px 10px rgba(0,0,0,1);" width="200px;" >
+        <h1>DISPONIBLE MUY PRONTO</h1>
+        <p>Nuestro equipo está trabajando en la creación de estadísticas para ti.</p>
     </main>
 </body>
 </html>

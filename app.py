@@ -11,7 +11,6 @@ def index_route():
 def login_route():
     return login.login()
 
-
 @app.route('/register')
 def register_route():
     return register.register()
@@ -20,15 +19,15 @@ def register_route():
 def home_route():
     return home.home()
 
-@app.route('/profile')
+@app.route('/home/profile')
 def information_route():
     return information.information()
 
-@app.route('/statistics')
+@app.route('/home/statistics')
 def statistics_route():
     return  statistics.statistics()
 
-@app.route('/sales')
+@app.route('/home/sales')
 def sales_route():
     return sales.sales()
 
@@ -44,7 +43,7 @@ def page_not_found(e):
     return errors.error_not_found(e)
 
 
-@app.route("/productos")
+@app.route("/home/productos")
 def productos_route():
     return productos.productos()
 

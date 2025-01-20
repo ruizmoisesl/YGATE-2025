@@ -1,0 +1,27 @@
+<main>
+    <div class="search">
+        <input type="search">
+        <button>BUSCAR</button>
+    </div>
+    <section class="content">
+        <div class="aside">
+            <div class="options">
+                <button>Diario</button>
+                <button>Semanal</button>
+                <button>Mensual</button>
+                <button>Anual</button>
+                <button>Personalizado</button>
+            </div>
+            <span class="line"></span>
+            <div class="graphics">
+                <button><img src="{{ url_for('static', filename='img/icons/grafico.png') }}" alt="" class="icons-graphic"></button>
+                <button><img src="{{ url_for('static', filename='img/icons/grafico.png') }}" alt="" class="icons-graphic"></button>
+                <button><img src="{{ url_for('static', filename='img/icons/grafico-de-barras.png') }}" alt="" class="icons-graphic"></button>
+                <button><img src="{{ url_for('static', filename='img/icons/grafico-circular.png') }}" alt="" class="icons-graphic"></button>
+            </div>
+        </div>
+        <div class="content-graphic">
+            <img src="{{ url_for('static', filename='img/icons/grafico-circular.png') }}" alt="">
+        </div>
+    </section>
+</main>

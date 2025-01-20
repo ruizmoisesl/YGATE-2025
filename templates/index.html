@@ -7,7 +7,10 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Y'GATE MANAGER</title>
 </head>
-<body>
+<body class="hidden">
+    <div class="preloader">
+        {% include 'components/preloader.html'   %}
+    </div>
     <header>
         <div>
             <button id="home">

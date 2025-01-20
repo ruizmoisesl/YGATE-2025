@@ -10,51 +10,17 @@
     <title>Estadisticas - Nombre Empresa</title>
 </head>
 
-<body>
+<body class="hidden">
+    <div class="preloader">
+        {% include 'components/preloader.html'   %}
+    </div>
     <header>
         {% include 'components/header.html' %}
     </header>
     <main>
-        <div class="search">
-            <input type="text">
-            <input type="number" min="0" max="99">
-            <input type="search">
-            <button>BUSCAR</button>
-        </div>
-        <section class="content">
-            <div class="aside">
-                <div class="options">
-                    <button>Hoy</button>
-                    <button>Semana</button>
-                    <button>Mes</button>
-                    <button>Año</button>
-                </div>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Método de Pago</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for i in range (10) %}
-                        <tr>
-                            <td>Celular</td>
-                            <td>250000</td>
-                            <td>1</td>
-                            <td>Efectivo</td>
-                            <td>250000</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <img src="{{ url_for('static', filename='img/icons/ygate.svg') }}" alt="" style="border-radius: 20%; box-shadow: 0px 0px 10px rgba(0,0,0,1);" width="200px;" >
+        <h1>DISPONIBLE MUY PRONTO</h1>
+        <p>Nuestro equipo está trabajando en la creación de ventas para ti.</p>
     </main>
 </body>
 

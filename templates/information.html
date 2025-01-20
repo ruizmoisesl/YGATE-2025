@@ -8,7 +8,10 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Perfil </title>
 </head>
-<body>
+<body class="hidden">
+    <div class="preloader">
+        {% include 'components/preloader.html'   %}
+    </div>
     <header>
         {% include 'components/header.html' %}
     </header>
@@ -24,11 +27,6 @@
                     <p>Nombre Empresa</p>
                 </div>
             </div>
-        </div>
-        <div class="options">
-            <button>Agregar Producto</button>
-            <button>Editar Producto</button>
-            <button>Eliminar Producto</button>
         </div>
     </section>
     <section class="billing-information">
