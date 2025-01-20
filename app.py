@@ -42,6 +42,7 @@ def decode_route(code):
 def page_not_found(e):
     return errors.error_not_found(e)
 
+
 @app.route("/productos")
 def productos_route():
     return productos.productos()
