@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Negocio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+</head>
+<body>
+  <header>
+      <div class="logo"></div>
+      <nav>
+          <a href="#">Productos</a>
+          <a href="#">Ventas</a>
+          <a href="#">Estadísticas</a>
+      </nav>
+  </header>
+  <div class="nombreE">
+    <h1>TU NEGOCIO</h1>
+  </div>
+  <div class="contenido">
+
+    <div class="categorias">
+      <div class="flechas-container">
+        <span class="flecha" onclick="desplazarIzquierda()">&#10094;</span> 
+        <div class="categoria-container" id="listaCategorias">
+          <div class="categoria">Categoría 1</div>
+          <div class="categoria">Categoría 2</div>
+          <div class="categoria">Categoría 3</div>
+          <div class="categoria">Categoría 4</div>
+        <div class="categoria">Categoría 5</div>
+        <div class="categoria">Categoría 6</div>
+        <div class="categoria">Categoría 7</div>
+        <div class="categoria">Categoría 8</div>
+        <div class="categoria">Categoría 9</div>
+        <div class="categoria">Categoría 10</div>
+      </div>
+      <span class="flecha" onclick="desplazarDerecha()">&#10095;</span> 
+    </div>
+  </div>
+  <div class="productos">
+    <div class="agregar"><h1>+</h1></div>
+    <div class="editar"><img src="editar.png" alt=""></div>
+    <div class="borrar"><img src="eliminar.png" alt=""></div>
+    <table>
+      <thead>
+          <tr>
+              <th>Código de Producto</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Descripción</th>
+              <th>Precio Base</th>
+              <th>Precio</th>
+              <th>Stock</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>001</td>
+              <td>Producto A</td>
+              <td>Categoría 1</td>
+              <td>Descripción del producto A</td>
+              <td>$10.00</td>
+              <td>$12.00</td>
+              <td>100</td>
+          </tr>
+          <tr>
+              <td>002</td>
+              <td>Producto B</td>
+              <td>Categoría 2</td>
+              <td>Descripción del producto B</td>
+              <td>$15.00</td>
+              <td>$18.00</td>
+              <td>50</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  <div class="espacio">
+    
+  </div>
+
+  <script>
+    document.querySelectorAll('.categoria-nav').forEach(button => {
+      button.addEventListener('click', () => {
+          alert('Navegar entre categorías');
+      });
+  });
+  function desplazarIzquierda() {
+      const contenedor = document.getElementById('listaCategorias');
+      const anchoCategoria = document.querySelector('.categoria').offsetWidth + 20; 
+      contenedor.scrollBy({ left: -anchoCategoria, behavior: 'smooth' }); 
+    }
+  
+    function desplazarDerecha() {
+      const contenedor = document.getElementById('listaCategorias');
+      const anchoCategoria = document.querySelector('.categoria').offsetWidth + 20; 
+      contenedor.scrollBy({ left: anchoCategoria, behavior: 'smooth' }); 
+    }
+  </script>
+</body>
+</html>

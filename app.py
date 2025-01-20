@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask , render_template
 from routes import index,login,register,home,information, statistics, sales,decode,errors
 
 app = Flask(__name__)
@@ -45,6 +45,10 @@ def page_not_found(e):
 @app.errorhandler(TypeError)
 def handler_error(error):
     return errors.handle_type_error(error)
+
+@app.route("/productos")
+def productos():
+    return productos.productos()
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000)
