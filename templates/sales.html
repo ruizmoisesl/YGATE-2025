@@ -10,18 +10,68 @@
     <title>Estadisticas - Nombre Empresa</title>
 </head>
 
+
+
 <body class="hidden">
     <div class="preloader">
-        {% include 'components/preloader.html'   %}
+        {% include 'components/preloader.html' %}
     </div>
     <header>
         {% include 'components/header.html' %}
     </header>
+    <section class="cantidad">
+        <h1>Cantidad</h1>
+        <input type="number" id="inputCantidad" min="1">
+        <button type="button" id="button-cantidad">continuar</button>
+    </section>
     <main>
-        <img src="{{ url_for('static', filename='img/icons/ygate.svg') }}" alt="" style="border-radius: 20%; box-shadow: 0px 0px 10px rgba(0,0,0,1);" width="200px;" >
-        <h1>DISPONIBLE MUY PRONTO</h1>
-        <p>Nuestro equipo está trabajando en la creación de ventas para ti.</p>
+        <section class="information">
+            <div class="info">
+                <input type="text" placeholder="Nombre del cliente" id="inputNombre">
+                <input type="text" placeholder="NIT" id="inputNit">
+                <input type="text" placeholder="Dirección" id="inputDireccion">
+                <input type="text" placeholder="Telefono" id="inputTelefono">
+            </div>
+            <div class="search">
+                <input type="search" id="search" placeholder="Buscar producto">
+                <div>{% include 'components/searching.html'%}</div>
+                <button type="button" id="button-terminar" class="button">Terminar venta</button>
+            </div>
+        </section>
+        <div class="line"></div>
+        <section class="factura" id="factura">
+            <h1>Factura</h1>
+            <div class="name">
+                <h3>Nombre Empresa</h3>
+            </div>
+            <div><h3># Venta</h3></div>
+            <div><h3 id="fecha"></h3></div>
+            <div><h3>Nombre Cliente:</h3><h3 id="nombreCliente"></h3></div>
+            <div><h3>NIT:</h3><h3 id="nit"></h3></div>
+            <div><h3>Telefono:</h3><h3 id="telefono"></h3></div>
+            <div><h3>Direccion:</h3><h3 id="direccion"></h3></div>
+            <div id="productos">
+                <div id="Productoscantidad">
+                    <h3>cantidad</h3>
+                </div>
+                <div id="nombreProducto">
+                    <h3>Nombre del producto</h3>
+                </div>
+                <div id="precioUnidad">
+                    <h3>Precio unidad</h3>
+                </div>
+                <div id="precioTotal">
+                    <h3>Precio Total</h3>
+                </div>
+            </div>
+            <div class="totalPagar">
+                <div>
+                    <h3>Total a pagar:</h3>
+                </div>
+                <div id="totalPagar"></div>
+            </div>
+        </section>
     </main>
+    <script src="{{ url_for('static', filename='js/sales.js') }}" ></script>
 </body>
-
 </html>

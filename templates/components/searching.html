@@ -1,0 +1,10 @@
+<section class="products" id="products"> 
+    {% for product in productos %}
+    <button class="product-button " id="product-button">
+        <div class="product">
+            <div class="product-img"><img src="{{product.img}}" alt=""></div>
+            <div> <h3 class="product-name">{{product.nombre}}</h3> <h3 class="product-price">{{product.precio}}</h3></div>
+        </div>
+    </button>    
+    {%endfor%}
+</section>

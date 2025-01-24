@@ -1,3 +1,8 @@
+.none{
+    display: none;
+}
+
+
 main{
     display: flex;
     flex-direction: column;
@@ -5,161 +10,244 @@ main{
     align-items: center;
     height: 50vh;
     margin: auto;
+    margin-top: 120px;
+    width: 90%;
+}
+
+.information{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .search{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    margin-top: 60px;
-    background-color: rgb(238, 234, 234);
-    border-bottom-left-radius:50px ;
-    border-bottom-right-radius:50px ;
-    padding: 10px; 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 }
-
-
-.content{
-    margin-top: 300px; 
-    width: 100%;
-    display: flex; 
-    justify-content: space-between;
-    flex-direction: row;
-
-}
-
-.content .content-graphic img{
-    width: 30%;
-    height: 30%;
-    object-fit: contain;
-}
-
-.search button{
-    outline: none;
-    border: none;
-    background: black;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-}
-
 
 .search input{
-    padding: 10px;
+    background-color: #33333300;
+    width: 250px;
+    height: 40px;
+    right: 715px;
+    top: -48px;
+    border: none;
+    border-bottom: 2px solid #000;
+    padding: 5px;
+    outline: none;
     border-radius: 10px;
-    outline: black;
-    border: none;
-    width: 15%;
-    margin: 20px;
+    box-shadow: 0px 0px 10px 0px #000;
+    margin: 10px;
+    transition: all 0.3s ease;
 }
 
-.search input:hover{
-    border: 2px solid black ;
-    transition: all 0.5s ease-in-out ;
-}
-
-.search input:active, .search input:focus{
-    padding: 12px;
-    border: 2px solid black ;
-}
-
-.aside{
-    width: 20%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0; 
-    padding: 20px; 
-    border-right: 1px solid #ddd;
-}
-
-.aside .options{
-    display: flex;
-    flex-direction: column;
-    justify-content: start  ;
-    font-weight: bold;
-
-}
-
-.options button{
-    margin-top: 3px;
-}
-
-.options button, .graphics button{
-    background: none;
-    border: none;
-    margin-bottom: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.options button:hover, .graphics button:hover{
-    background: rgba(0, 0, 0, 0.658);
+.search .button{
+    background-color: black;
     color: white;
-    font-weight: bold;
-    padding: 5px;
+    border: none;
+    padding: 10px;
+    width: 200px;
     border-radius: 10px;
-    transition: all 0.5s ease-in-out ;
-} 
-
-.options button:active, .options button:focus {
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-thickness: 2px;
+    
 }
 
-.graphics button:active, .graphics button:focus {
-    background: rgba(0, 0, 0, 0.658);
+input[type = "text" ]{
+    background-color: #33333300;
+    width: 250px;
+    height: 20px;
+    right: 715px;
+    top: -48px;
+    border: none;
+    border-bottom: 2px solid #000;
     padding: 5px;
+    outline: none;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+input:focus{
+   outline: solid 2px #000;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 10 px #000;
 }
 
 .line{
-    width: 1px;
-    background-color: black;
-}
-
-
-.table-container {
-    width: 80%; 
-    overflow-y: auto;
-    max-height: 500px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
-}
-
-.table-container table {
+    margin-top: 10px;
     border: 1px solid black;
-    border-collapse: collapse;
-    width: 100%; 
+    width: 110%;
 }
 
-.table-container table thead {
-    background-color: #f0f0f0; 
-    border-bottom: 2px solid black; 
+
+.products{
+    display: none;
+    flex-direction: column;
+    width: 320px;
+    background-color: white;
+    right: 240px;
+    height: 300px;
+    border-radius: 10px  ;
+    overflow-x: auto;
+    position: absolute;
+    box-shadow: 0px 0px 10px 0px #000;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 0.5s;
 }
 
-.table-container table th, .table table td {
-    padding: 10px; 
-    text-align: left;
-    border: 2px solid black;
+.products::-webkit-scrollbar {
+    width: 10px;
 }
 
-.table-container table tr:nth-child(even) {
-    background-color: #f9f9f9; 
+.products::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 10px;
 }
 
-.table-container table tr:hover {
-    background-color: #e0e0e0; 
+.products::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 10px;
 }
 
-.table-container table tbody td{
-    border:2px solid black ;
-    padding: 4px;
+.products .product{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom:1px solid black ;
+}
+
+.product-img{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.product-img img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.product-button{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    
+}
+
+.factura{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    
+}
+
+.factura div{
+    display: flex;
+    flex-direction: row;
+}
+
+.factura div h3{
+    padding: 2px;
+    margin-right: 10px;
+}
+
+.cantidad{
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    height: 200px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+.cantidad h1{
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: -20px;
+}
+
+.cantidad #inputCantidad{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 2px solid #000;
+    outline: none;
+    box-shadow: 0px 0px 10px 0px #000;text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin :20px;
+}
+
+.cantidad button{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#Productoscantidad, #nombreProducto,#precioUnidad,#precioTotal{
+    display: flex;
+    flex-direction: column;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media print {
+
+    #factura, #factura * {
+        visibility: visible;
+        background-color: black;
+    }
+    #factura {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+    #factura h1, #factura h3, #factura span {
+        font-size: 12px; 
+    }
+    #factura img {
+        max-width: 100px; 
+    }
 }
