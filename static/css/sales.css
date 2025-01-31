@@ -150,6 +150,7 @@ input:focus{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     bottom: 10px;
     
 }
@@ -205,6 +206,7 @@ input:focus{
     border: none;
     padding: 10px;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 #Productoscantidad, #nombreProducto,#precioUnidad,#precioTotal{
@@ -212,6 +214,15 @@ input:focus{
     flex-direction: column;
 }
 
+
+.extradiv{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 @keyframes fadeIn {
     0% {
@@ -231,23 +242,3 @@ input:focus{
     }
 }
 
-@media print {
-
-    #factura, #factura * {
-        visibility: visible;
-        background-color: black;
-    }
-    #factura {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: auto;
-    }
-    #factura h1, #factura h3, #factura span {
-        font-size: 12px; 
-    }
-    #factura img {
-        max-width: 100px; 
-    }
-}

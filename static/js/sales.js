@@ -1,3 +1,5 @@
+const { default: Swal } = require("sweetalert2");
+
 const fechaActual = new Date();
 const dia = fechaActual.getDate();
 const mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0');
@@ -115,20 +117,62 @@ buttonCantidad.addEventListener('click', () => {
 
 const buttonTerminar = document.getElementById('button-terminar');
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const buttonTerminar = document.getElementById('button-terminar');
 
-    buttonTerminar.addEventListener('click', () => {
-        printSection('factura');
+    
+    buttonTerminar.addEventListener('click', () => {  
+        let inputTelefono = document.getElementById('inputTelefono').value;    
+        let inputNit = document.getElementById('inputNit').value;
+        let inputNombre = document.getElementById('inputNombre').value;
+        let inputDireccion = document.getElementById('inputDireccion').value
+
+        if (inputNombre === '' || inputNit === '' || inputDireccion === ''|| inputTelefono == '' ){
+            alert('Termina de rellenar los campos faltantes')
+        }else{
+            addExtraElementsToFactura();
+            printSection('factura');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
     });
 
-    function printSection(sectionId) {
-        const printContents = document.getElementById(sectionId).innerHTML;
-        const originalContents = document.body.innerHTML;
+    function addExtraElementsToFactura() {
+        const factura = document.getElementById('factura');
+        
+        // Crear un nuevo elemento para agregar a la factura
+        const extraElement = document.createElement('div');
+        extraElement.classList.add('extradiv')
+        extraElement.innerHTML = `
+            <img src="/static/img/icons/icono.png" alt="logo" width="100px" heigth="100px">
+            <p style="font-weight:bold;">Gracias por tu compra!</p>
+        `;
+        
+        factura.appendChild(extraElement);
+    }
 
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-        window.location.reload(); // Recargar la página para restaurar el contenido original
+    function printSection(sectionId) {
+        printJS({
+            printable: sectionId,
+            type: 'html',
+            targetStyles: ['*'],
+            css: '/static/css/sales.css', 
+            style: `
+                @page { 
+                    size: auto;  /* auto es el valor inicial */
+                    margin: 20mm; 
+                }
+                #factura {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
+                    padding: 0;
+                }
+            `,
+            scanStyles: false 
+        });
     }
 });
