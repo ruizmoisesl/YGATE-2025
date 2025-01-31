@@ -1,5 +1,3 @@
-const { default: Swal } = require("sweetalert2");
-
 const fechaActual = new Date();
 const dia = fechaActual.getDate();
 const mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0');
@@ -129,7 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let inputDireccion = document.getElementById('inputDireccion').value
 
         if (inputNombre === '' || inputNit === '' || inputDireccion === ''|| inputTelefono == '' ){
-            alert('Termina de rellenar los campos faltantes')
+            Swal.fire({
+                icon : "warning",
+                title: "Rellena los espacios restantes"
+            })
         }else{
             addExtraElementsToFactura();
             printSection('factura');
@@ -141,8 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addExtraElementsToFactura() {
         const factura = document.getElementById('factura');
-        
-        // Crear un nuevo elemento para agregar a la factura
         const extraElement = document.createElement('div');
         extraElement.classList.add('extradiv')
         extraElement.innerHTML = `

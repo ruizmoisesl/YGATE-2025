@@ -187,7 +187,6 @@ input:focus{
     text-transform: uppercase;
     margin-top: -20px;
 }
-
 .cantidad #inputCantidad{
     width: 60px;
     height: 30px;
@@ -209,7 +208,7 @@ input:focus{
     font-weight: bold;
 }
 
-#Productoscantidad, #nombreProducto,#precioUnidad,#precioTotal{
+#Productoscantidad, #nombreProducto,#precioUnidad,#precio{
     display: flex;
     flex-direction: column;
 }
@@ -222,6 +221,27 @@ input:focus{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+
+#productos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#precioTotal{
+    display: flex;
+    flex-direction: column;
+}
+
+.totalPagar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    width: 55%;
+    margin-top: 20px;
 }
 
 @keyframes fadeIn {
