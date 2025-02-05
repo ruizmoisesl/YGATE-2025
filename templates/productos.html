@@ -37,8 +37,8 @@
           <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Buscar por nombre o código" class="busqueda">
         </div>
         <div class="opciones-productos">
-          <div class="agregar"><h1>+</h1></div>
-          <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></div>
+          <div class="agregar"><a href="/home/productos/agregarProducto"><h1>+</h1></div></a>
+          <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
           <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
         </div>
       </div>
@@ -47,41 +47,28 @@
           <tr>
               <th>Código de Producto</th>
               <th>Nombre</th>
-              <th>Categoría</th>
-              <th>Descripción</th>
+              <th>Marca</th>
+              <th>Referencia</th>
+              <th>color</th>
               <th>Precio Base</th>
               <th>Precio</th>
               <th>Stock</th>
           </tr>
         </thead>
         <tbody id="productTableBody">
+          
+          {% for producto,productos in productos %}
           <tr>
-              <td>001</td>
-              <td>Producto A</td>
-              <td>Categoría 1</td>
-              <td>Descripción del producto A</td>
-              <td>$10.00</td>
-              <td>$12.00</td>
-              <td>100</td>
+            <td>{{ producto[0] }}</td>
+            <td>{{ productos[0] }}</td>
+            <td>{{ productos[1] }}</td>
+            <td>{{ productos[2] }}</td>
+            <td>{{ producto[4] }}</td> 
+            <td>{{ producto[1] }}</td> 
+            <td>{{ producto[2] }}</td> 
+            <td>{{ producto[3] }}</td> 
           </tr>
-          <tr>
-              <td>002</td>
-              <td>Producto B</td>
-              <td>Categoría 2</td>
-              <td>Descripción del producto B</td>
-              <td>$15.00</td>
-              <td>$18.00</td>
-              <td>50</td>
-          </tr>
-          <tr>
-            <td>003</td>
-            <td>logitech g302</td>
-            <td>mouse</td>
-            <td>inalambrico</td>
-            <td>$15.00</td>
-            <td>$18.00</td>
-            <td>50</td>
-        </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>

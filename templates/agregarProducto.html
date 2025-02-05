@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/agregarProducto.css') }}">
+</head>
+
+<body>
+  <header>
+      <div class="logo"></div>
+      <nav>
+          <a href="#">Productos</a>
+          <a href="#">Ventas</a>
+          <a href="#">Estadísticas</a>
+      </nav>
+  </header>
+    <h1>AGREGAR PRODUCTO</h1>
+    <P>*SI CONSIDERA UNO DE LOS DATOS INECESARIO OMITALO*</P>
+    <DIV class="formulario">
+        <form class="formu" action="agregarProducto" method="POST">
+            <input type="text" placeholder="Nombre Del Producto" name="nombre"> 
+            <input type="text" placeholder="Marca Del Producto" name="marca"> 
+            <input type="text" placeholder="Referencia" name="referencia"> 
+            <input type="text" placeholder="Color" name="color"> 
+            <input type="text" placeholder="Precio Base" name="precioB"> 
+            <input type="text" placeholder="Precio Final" name="precioF"> 
+            <input type="text" placeholder="Stock" name="stock"> 
+            <button class="qr">ESCANEAR CODIGO DE BARRAS</button>
+            <button class="agregar" type="submit">AGREGAR PRODUCTO</button>
+        </form>
+    </DIV>
+</body>
+</html>
