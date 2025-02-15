@@ -47,7 +47,7 @@ def productos_route():
 
 @app.route("/home/productos/agregarProducto", methods=['GET', 'POST'])
 def agregar_producto():
-    return render_template("agregarProducto.html"),agregarProductos.agregarProducto()
+    return agregarProductos.agregarProducto()
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000)
