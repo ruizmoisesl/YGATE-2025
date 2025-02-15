@@ -1,9 +1,9 @@
 from flask import Flask
 from routes import index,login,register,home,information, statistics, sales,productos,errors,agregarProductos
-from routes.agregarProductos import agregar
+
 
 app = Flask(__name__)
-app.register_blueprint(agregar, url_prefix='/agregar')
+
 
 @app.route('/')
 def index_route():
