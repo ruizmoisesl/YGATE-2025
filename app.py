@@ -1,5 +1,5 @@
-from flask import Flask , render_template , Blueprint
-from routes import index,login,register,home,information, statistics, sales,decode,productos,errors,agregarProductos
+from flask import Flask
+from routes import index,login,register,home,information, statistics, sales,productos,errors,agregarProductos
 from routes.agregarProductos import agregar
 
 app = Flask(__name__)
@@ -42,12 +42,14 @@ def page_not_found(e):
 
 @app.route("/home/productos")
 def productos_route():
-    print("RUTA: productos_route")
     return productos.productos()
 
 @app.route("/home/productos/agregarProducto", methods=['GET', 'POST'])
 def agregar_producto():
     return agregarProductos.agregarProducto()
 
+
+"""
 if __name__ == "__main__":
-    app.run(debug=True, port=4000)
+    app.run(debug=True, port=4000)    
+"""
