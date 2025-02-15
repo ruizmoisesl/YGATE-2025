@@ -1,5 +1,5 @@
 from flask import  render_template
-import MySQLdb
+import mysql.connector as MySQLdb
 
 
 try:
