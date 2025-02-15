@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Y'GATE MANAGER</title>
@@ -22,7 +23,7 @@
             <button class="log" id="login-button" type="button" href="">Iniciar sesión</button>
             <button class="reg" id="register-button" type="button">Registrarse</button>
         </nav>
-    </header>    
+    </header>
     <script>
         const login_button = document.getElementById('login-button')
         const register_button = document.getElementById('register-button')

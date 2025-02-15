@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Registrarse</title>
 </head>
+
 <body class="hidden">
     <div class="preloader">
         {% include 'components/preloader.html' %}
@@ -21,19 +24,54 @@
         <nav>
             <button class="log" id="login-button" type="button">Iniciar sesión</button>
         </nav>
-    </header> 
+    </header>
     <main>
-        {% include 'components/pay.html'%}
+        <div class="container">
+            <div class="titulo">
+                <h1><strong>REGISTRO TIENDA</strong></h1>
+                <span class="logor">
+                    <a href="#"><img
+                            src="{{ url_for('static', filename='img/icons/Y') }}"
+                            alt="Y'gate"></a>
+                </span>
+
+            </div>
+            <form class="formu" action="">
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="intitucion" name="institucion" placeholder="Institucion">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="telefono" name="telefono" placeholder="Telefono">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nombreencargado" name="nombreencargado" placeholder="Nombre encargado">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="telefonoencargado" name="telefonoencargado" placeholder="Telefono encargado">
+                </div>
+                <div class="link">
+                    <b><a href="#">Ya tengo cuenta</a></b>
+                    <a href="#">Registro usuario</a>
+                </div>
+            </form>
+        </div>
     </main>
 </body>
 <script>
     const login_button = document.getElementById('login-button')
     const home = document.getElementById('home')
-    login_button.addEventListener('click', function() {
+    login_button.addEventListener('click', function () {
         window.location.href = '/login'
     })
-    home.addEventListener('click', function() {
+    home.addEventListener('click', function () {
         window.location.href = '/'
     }) 
 </script>
+
 </html>

@@ -9,7 +9,7 @@ app.register_blueprint(agregar, url_prefix='/agregar')
 def index_route():
     return index.index()
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login_route():
     return login.login()
 
@@ -34,12 +34,6 @@ def statistics_route():
 def sales_route():
     return sales.sales()
 
-@app.route('/decode', methods=['GET', 'POST'])
-def decode_route(code):
-    if code:   
-        return decode.decode(code)
-    else:
-        return decode.decode(code = '6928804011128')
 
 @app.errorhandler(404)
 def page_not_found(e):

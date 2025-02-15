@@ -1,0 +1,64 @@
+.container {
+    width: 700px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.259);
+    border: solid transparent;
+    margin-top: 80px;
+    overflow: auto;
+}
+
+.logor img {
+    width: 150px;
+    margin: -80px 180px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.formu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 500px;
+    padding: 15px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+}
+
+
+.titulo {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    margin-top: 70px;
+}
+
+a {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #f5e103;
+}
+
+.link {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
