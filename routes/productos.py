@@ -9,7 +9,6 @@ try:
         passwd="FjhgEsSoU9KepA4XgIxR",
         db="bogk9mha8ehn5owk1qeo"
     )
-    print("Conexión exitosa")
 except MySQLdb.Error as e:
     print(f"Error al conectar: {e}")
 

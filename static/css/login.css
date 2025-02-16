@@ -26,7 +26,7 @@ body{
 .input-password button {
     position: absolute;
     right: 10px;
-    bottom: 25px;
+    bottom: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -71,10 +71,9 @@ body{
 
 
 
-.formi input[type="text"]{
+.formi input[type="text"],.formi input[type="password"] {
     padding: .7rem;
     width: 100%;
-    margin-bottom: 15px;
     outline-color: #000000;
     border: solid thin #9c9696;
     border-radius: 50px;
@@ -82,24 +81,11 @@ body{
     font-family: inherit;
     font-size: 17px;
     text-align: left;
-    margin-top: 35px;
     transition: all 0.3s ease-in-out;
 }
-.formi input[type="password"] {
-    padding: .7rem; 
-    width: 100%;
-    margin-bottom: 15px;
-    outline-color: #000000;
-    border: solid thin #9c9696;
-    border-radius: 50px;
-    color: #010101;
-    font-family: inherit;
-    font-size: 17px;
-    text-align: left;
-    margin-top: 20px;
-    background-size: 20px 20px;
-    transition: all 0.3s ease-in-out;
 
+.formi input:first-child{
+    margin-top: 35px;
 }
 
 .buttons button{
@@ -138,11 +124,6 @@ body{
     font-size: 16px;
     margin-top: 30px;
 }
-.opcion2{
-    text-align: left;
-    font-size: 22px;
-    margin-top: 15px;
-}
 
 .formi span a {
     color: #000000;
@@ -151,7 +132,7 @@ body{
     text-decoration: none;
 }
 .formi a:hover {
-text-decoration: underline;
+    text-decoration: underline;
 }
 
 .formi input[type="text"]:focus,
@@ -166,13 +147,27 @@ font-size: 14px;
 margin-top: 5px;
 }
 
-@media screen and (max-width: 600px) {
-.containeri {
-padding: 3rem;
+
+@media screen and (max-width: 768px) {
+
+    body{
+        overflow-y: hidden;
+    }
+
+    .containeri {
+        padding: 4rem;
+        margin-right: 100px;
+        margin-top: 20px;
+    }
+    .container-form {
+        padding: 2.5em;
+    }
+    .logo img {
+        width: 100px;
+    }
+    .formi input[type="text"],
+    .formi input[type="password"] {
+        font-size: 16px;
+    }
 }
 
-.formi {
-padding: 2em;
-}
-
-}

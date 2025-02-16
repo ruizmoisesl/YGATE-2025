@@ -28,38 +28,29 @@
     <main>
         <div class="container">
             <div class="titulo">
-                <h1><strong>REGISTRO TIENDA</strong></h1>
                 <span class="logor">
                     <a href="#"><img
-                            src="{{ url_for('static', filename='img/icons/Y') }}"
+                            src="{{ url_for('static', filename='img/icons/ygate.png') }}"
                             alt="Y'gate"></a>
                 </span>
-
             </div>
-            <form class="formu" action="">
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="intitucion" name="institucion" placeholder="Institucion">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="telefono" name="telefono" placeholder="Telefono">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="nombreencargado" name="nombreencargado" placeholder="Nombre encargado">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="telefonoencargado" name="telefonoencargado" placeholder="Telefono encargado">
-                </div>
-                <div class="link">
-                    <b><a href="#">Ya tengo cuenta</a></b>
-                    <a href="#">Registro usuario</a>
-                </div>
-            </form>
+            <div>
+                <form class="formu" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text"  name="nombre" placeholder="Nombre de la empresa" autocomplete="off">
+                        <input type="email" name="email" placeholder="Email" autocomplete="off">
+                        <input type="number"  name="telefono" placeholder="Telefono" autocomplete="off">
+                        <input type="text"  name="nit" placeholder="nit" autocomplete="off">
+                        <input type="password"  name="contraseña" placeholder="contraseña" autocomplete="off">
+                        <input type="password"  name="repetir-contraseña" placeholder="Repetir contraseña" autocomplete="off">
+                        <input type="file" class="custom-file-upload" accept="image/*" name="logo">
+                    </div>
+                    <div class="link buttons">
+                        <button type="submit">Registrarse</button>
+                        <span class="opcion1"><a href="/login">¿Ya tienes cuenta? Inicia sesion</a></span>
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 </body>

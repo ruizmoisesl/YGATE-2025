@@ -1,8 +1,15 @@
 from flask import Flask
 from routes import index,login,register,home,information, statistics, sales,productos,errors,agregarProductos
+import os
 
 
 app = Flask(__name__)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'img', 'logos')
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route('/')
@@ -13,7 +20,7 @@ def index_route():
 def login_route():
     return login.login()
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register_route():
     return register.register()
 
@@ -49,7 +56,5 @@ def agregar_producto():
     return agregarProductos.agregarProducto()
 
 
-"""
 if __name__ == "__main__":
     app.run(debug=True, port=4000)    
-"""
