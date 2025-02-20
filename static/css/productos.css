@@ -46,6 +46,7 @@ body {
 .editar img {
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 .agregar {
@@ -207,4 +208,15 @@ a {
   display: flex;
   flex-direction: column;
   width: 100vw;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+.edit-button {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
 }

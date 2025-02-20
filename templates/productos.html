@@ -38,7 +38,7 @@
         </div>
         <div class="opciones-productos">
           <div class="agregar"><a href="/home/productos/agregarProducto"><h1>+</h1></div></a>
-          <div class="editar"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
+          <div class="editar" onclick="activarEdicion()"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
           <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
         </div>
       </div>
@@ -56,19 +56,7 @@
           </tr>
         </thead>
         <tbody id="productTableBody">
-          
-          {% for producto,productos in productos %}
-          <tr>
-            <td>{{ producto[0] }}</td>
-            <td>{{ productos[0] }}</td>
-            <td>{{ productos[1] }}</td>
-            <td>{{ productos[2] }}</td>
-            <td>{{ producto[4] }}</td> 
-            <td>{{ producto[1] }}</td> 
-            <td>{{ producto[2] }}</td> 
-            <td>{{ producto[3] }}</td> 
-          </tr>
-          {% endfor %}
+          {%include 'listaProductos.html'%}
         </tbody>
       </table>
     </div>
@@ -76,10 +64,13 @@
   </div>
 
   <div class="espacio">
-    
+      
+
   </div>
 
   <script>
+
+    
     document.querySelectorAll('.categoria-nav').forEach(button => {
       button.addEventListener('click', () => {
           alert('Navegar entre categorías');

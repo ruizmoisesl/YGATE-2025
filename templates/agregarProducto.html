@@ -19,9 +19,9 @@
   </header>
     <h1>AGREGAR PRODUCTO</h1>
     <P>*SI CONSIDERA UNO DE LOS DATOS INECESARIO OMITALO*</P>
-    <DIV class="formulario">
-        <form class="formu" action="agregarProducto" method="POST">
-            <input type="text" placeholder="Nombre Del Producto" name="nombre"> 
+    <form class="formu" action="{{ url_for('agregar.agregarProducto') }}" method="POST" >
+        <DIV class="formulario">
+            <input type="text" placeholder="Nombre Del Producto" name="nombre" value="Pornito"> 
             <input type="text" placeholder="Marca Del Producto" name="marca"> 
             <input type="text" placeholder="Referencia" name="referencia"> 
             <input type="text" placeholder="Color" name="color"> 
@@ -30,7 +30,7 @@
             <input type="text" placeholder="Stock" name="stock"> 
             <button class="qr">ESCANEAR CODIGO DE BARRAS</button>
             <button class="agregar" type="submit">AGREGAR PRODUCTO</button>
-        </form>
-    </DIV>
+        </DIV>
+    </form>
 </body>
 </html>

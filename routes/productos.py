@@ -1,20 +1,24 @@
-from flask import  render_template
+from flask import  render_template , Flask , Blueprint , current_app
 import MySQLdb
 
 
-try:
-    mysql = MySQLdb.connect(
+
+
+productosBP = Blueprint('productos', __name__)
+
+
+
+
+@productosBP.route('/productos')
+def productos():
+    try:
+        mysql = MySQLdb.connect(
         host="bogk9mha8ehn5owk1qeo-mysql.services.clever-cloud.com",
         user="udq78qvouupy05hi",
         passwd="FjhgEsSoU9KepA4XgIxR",
         db="bogk9mha8ehn5owk1qeo"
     )
-    print("Conexión exitosa")
-except MySQLdb.Error as e:
-    print(f"Error al conectar: {e}")
-
-def productos():
-    try:
+        print("Conexión exitosa")
         cursor = mysql.cursor()
         cursor.execute('SELECT ID_Producto,Precio_Base,Precio_Final,Stock,Color FROM Detalles_Producto')
         user = cursor.fetchall()
@@ -25,7 +29,9 @@ def productos():
         cursor.close()
         print(productos)
         return render_template("productos.html",productos=zip(user,productos))
+        
     except Exception as e:
         return f"Error: {str(e)}"
 
-
+    
+    

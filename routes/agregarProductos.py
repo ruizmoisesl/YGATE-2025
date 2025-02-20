@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 import MySQLdb
 
 app = Flask(__name__)
-agregar = Blueprint('agregarP', __name__)
+agregar = Blueprint('agregar', __name__)
 try:
     mysql = MySQLdb.connect(
         host="bogk9mha8ehn5owk1qeo-mysql.services.clever-cloud.com",
@@ -20,8 +20,9 @@ try:
     
 except MySQLdb.Error as e:
     print(f"Error al conectar: {e}")
-@app.route("/agregarProducto", methods=['GET', 'POST'])
+@agregar.route('/agregarProducto', methods=['GET', 'POST'])
 def agregarProducto():
+    print("######################!!!!!! ACABE DE ENTRAR A LA FUNCION 'AGREGARPRODUCTO'!!!!!!!!!!!#################### " )
     if request.method == 'POST':
         nombre = request.form['nombre']
         marca = request.form['marca']
@@ -41,6 +42,7 @@ def agregarProducto():
         cursor = mysql.cursor()
         cursor.execute('INSERT INTO Detalles_Producto (ID_Producto,Color,Precio_Base,Precio_Final,Stock) VALUES (%s, %s , %s, %s, %s)',(id,color,precioB,precioF,stock))
         mysql.commit()
+        print("######################!!!!!! ACABE DE AGREGAR UN PRODUCTO'!!!!!!!!!!!#################### " )
         return redirect(url_for('productos_route'))
     else:
         print("ERROR")
