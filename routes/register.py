@@ -1,6 +1,8 @@
-from flask import render_template, url_for, redirect, request, session
-import os
-from routes.config import UPLOAD_FOLDER
+from flask import render_template, url_for, redirect, request, session,jsonify
+import cloudinary
+import cloudinary.api
+import cloudinary.uploader
+import routes.config 
 
 
 def register():
@@ -13,11 +15,14 @@ def register():
         repetir_contraseña = request.form['repetir-contraseña']
         file = request.files['logo']
 
-        if file and file.filename.lower().endswith(('png', 'jpg', 'jpeg', 'gif')):
-            file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-            file.save(file_path)
-        
-        return redirect(url_for('register_route'))
 
-    print("La carpeta de subida está en:", UPLOAD_FOLDER)
+        result = cloudinary.uploader.upload(
+            file,
+            folder="logos",
+            public_id=file.filename.split('.')[0],
+            resource_type="image"
+        )
+
+        secure_url = result.get("secure_url")
+
     return render_template('register.html')

@@ -1,10 +1,10 @@
-from flask import Flask
-import os
-
-app = Flask(__name__)
-
-app.config['UPLOAD_FOLDER'] = 'static/img/logos'
+import cloudinary 
+import cloudinary.api
+import cloudinary.uploader
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
-UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'img', 'logos')
+cConfig= cloudinary.config( 
+  cloud_name="dwjrbojmd", 
+  api_key="915429465462772", 
+  api_secret="yVmnAMXT45embUaYwLea5YqRvOc"
+)

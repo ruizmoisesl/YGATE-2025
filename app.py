@@ -1,6 +1,9 @@
 from flask import Flask
 from routes import index,login,register,home,information, statistics, sales,productos,errors,agregarProductos
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 app = Flask(__name__)
