@@ -43,7 +43,10 @@
                         <input type="text"  name="nit" placeholder="nit" autocomplete="off">
                         <input type="password"  name="contraseña" placeholder="contraseña" autocomplete="off">
                         <input type="password"  name="repetir-contraseña" placeholder="Repetir contraseña" autocomplete="off">
-                        <input type="file" class="custom-file-upload" accept="image/*" name="logo">
+                        <div>
+                            <input type="file" id="logo" class="custom-file-upload" accept="image/*" name="logo">
+                            <span id="file-name">Logo no seleccionado</span>
+                        </div>
                     </div>
                     <div class="link buttons">
                         <button type="submit">Registrarse</button>
@@ -63,6 +66,11 @@
     home.addEventListener('click', function () {
         window.location.href = '/'
     }) 
+
+    document.getElementById("logo").addEventListener("change", function() {
+            let fileName = this.files.length > 0 ? this.files[0].name : "Ningún archivo seleccionado";
+            document.getElementById("file-name").textContent = `Logo Seleccionado: ${fileName}`;
+    });
 </script>
 
 </html>

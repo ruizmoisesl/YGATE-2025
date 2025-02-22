@@ -1,13 +1,7 @@
 from flask import  render_template , Flask , Blueprint , current_app
-import MySQLdb
-
-
-
+import mysql.connector as MySQLdb
 
 productosBP = Blueprint('productos', __name__)
-
-
-
 
 @productosBP.route('/productos')
 def productos():
