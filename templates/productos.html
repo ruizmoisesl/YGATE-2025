@@ -38,8 +38,8 @@
         </div>
         <div class="opciones-productos">
           <div class="agregar"><a href="/home/productos/agregarProducto"><h1>+</h1></div></a>
-          <div class="editar" id="toggleSelectBtn" onclick="toggleSelection()"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
-          <div class="borrar" id="borrador" onclick="eliminar()"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
+          <div class="editar" id="toggleSelectBtn" onclick="toggleSelection()"><img src="{{ url_for('static', filename='img/editar.png') }}" alt="" id="imagenEditar"></a></div>
+          <div class="borrar" id="borrador" onclick="eliminar()"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt="" id="imagenEliminar"></div>
         </div>
       </div>
       <table id="numberTable">
@@ -60,6 +60,13 @@
         </tbody>
       </table>
     </div>
+    <div class="modal" id="miModal">
+      <div class="modal-content">
+          <p id="modalTexto">¿Quieres continuar?</p>
+          <button id="btnSi">Sí</button>
+          <button id="btnNo">No</button>
+      </div>
+  </div>
 
   </div>
 
@@ -69,36 +76,60 @@
   </div>
 
   <script>
-
+    const modal = document.getElementById('miModal');
+    const btnSi = document.getElementById('btnSi');
+    const btnNo = document.getElementById('btnNo');
     let seleccionActiva = false;
     let borrador = false;
+    const modalTexto = document.getElementById('modalTexto');
+
+
+
+
         function eliminar() {
           borrador = !borrador;
           const button = document.getElementById('borrador');
           const table = document.getElementById('numberTable');
           const filas = document.querySelectorAll('tr[data-num]');
+          const imagen = document.getElementById('imagenEliminar');
 
           if (borrador) {
-            button.textContent = 'Desactivar selección';
+            imagen.src = "{{ url_for('static', filename='img/x.png') }}" 
             table.classList.add('active');
             filas.forEach(fila => {
                 fila.classList.add('selectable');
                 fila.addEventListener('click', borrarFila);
             });
         }else {
-          button.textContent = 'Activar selección';
+          imagen.src = "{{ url_for('static', filename='img/eliminar.png') }}" 
           table.classList.remove('active');
           filas.forEach(fila => {
               fila.classList.remove('selectable');
-              fila.removeEventListener('click', borrarFila);
+              
           });
       }
 
     }
 
+  btnNo.addEventListener('click', function() {
+    modal.style.display = 'none';  
+});
+
+
+
+
     function borrarFila(event) {
       const numero = event.currentTarget.getAttribute('data-num');
+      const botonsi = document.getElementById('btnSi');
+      botonsi.addEventListener('click', function() {
       window.location.href = `/borrarProducto?numero=${numero}`;
+      modal.style.display = 'none';
+      });
+        console.log("AAH")
+        modalTexto.textContent = `¿ ¡SEGURO QUE QUIERES BORRAR EL PRODUCTO NUMERO ${numero}! ?`
+        modal.style.display = 'flex';
+
+      
   }
 
         function toggleSelection() {
@@ -107,16 +138,18 @@
             const button = document.getElementById('toggleSelectBtn');
             const table = document.getElementById('numberTable');
             const filas = document.querySelectorAll('tr[data-num]');
+            const imagen = document.getElementById('imagenEditar');
 
             if (seleccionActiva) {
-                button.textContent = 'Desactivar selección';
+              imagen.src = "{{ url_for('static', filename='img/x.png') }}" 
                 table.classList.add('active');
                 filas.forEach(fila => {
                     fila.classList.add('selectable');
                     fila.addEventListener('click', seleccionarFila);
                 });
             } else {
-                button.textContent = 'Activar selección';
+                const imagen = document.getElementById('imagenEditar');
+                imagen.src = "{{ url_for('static', filename='img/editar.png') }}" 
                 table.classList.remove('active');
                 filas.forEach(fila => {
                     fila.classList.remove('selectable');
