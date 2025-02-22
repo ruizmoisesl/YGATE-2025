@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/icono.png') }}" type="image/x-icon">
     <title>Registrarse</title>
 </head>
+
 <body class="hidden">
     <div class="preloader">
         {% include 'components/preloader.html' %}
@@ -21,19 +24,45 @@
         <nav>
             <button class="log" id="login-button" type="button">Iniciar sesión</button>
         </nav>
-    </header> 
+    </header>
     <main>
-        {% include 'components/pay.html'%}
+        <div class="container">
+            <div class="titulo">
+                <span class="logor">
+                    <a href="#"><img
+                            src="{{ url_for('static', filename='img/icons/ygate.png') }}"
+                            alt="Y'gate"></a>
+                </span>
+            </div>
+            <div>
+                <form class="formu" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text"  name="nombre" placeholder="Nombre de la empresa" autocomplete="off">
+                        <input type="email" name="email" placeholder="Email" autocomplete="off">
+                        <input type="number"  name="telefono" placeholder="Telefono" autocomplete="off">
+                        <input type="text"  name="nit" placeholder="nit" autocomplete="off">
+                        <input type="password"  name="contraseña" placeholder="contraseña" autocomplete="off">
+                        <input type="password"  name="repetir-contraseña" placeholder="Repetir contraseña" autocomplete="off">
+                        <input type="file" class="custom-file-upload" accept="image/*" name="logo">
+                    </div>
+                    <div class="link buttons">
+                        <button type="submit">Registrarse</button>
+                        <span class="opcion1"><a href="/login">¿Ya tienes cuenta? Inicia sesion</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 </body>
 <script>
     const login_button = document.getElementById('login-button')
     const home = document.getElementById('home')
-    login_button.addEventListener('click', function() {
+    login_button.addEventListener('click', function () {
         window.location.href = '/login'
     })
-    home.addEventListener('click', function() {
+    home.addEventListener('click', function () {
         window.location.href = '/'
     }) 
 </script>
+
 </html>

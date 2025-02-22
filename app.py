@@ -1,26 +1,19 @@
 from flask import Flask , render_template , Blueprint
 from routes import index,login,register,home,information, statistics, sales,decode,productos,errors,agregarProductos
 from routes.agregarProductos import agregar
-from routes.productos import productosBP
-
 
 app = Flask(__name__)
-app.register_blueprint(agregar)
-app.register_blueprint(productosBP)
-
-
-    
-
+app.register_blueprint(agregar, url_prefix='/agregar')
 
 @app.route('/')
 def index_route():
     return index.index()
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login_route():
     return login.login()
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register_route():
     return register.register()
 
@@ -41,12 +34,6 @@ def statistics_route():
 def sales_route():
     return sales.sales()
 
-@app.route('/decode', methods=['GET', 'POST'])
-def decode_route(code):
-    if code:   
-        return decode.decode(code)
-    else:
-        return decode.decode(code = '6928804011128')
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -55,13 +42,14 @@ def page_not_found(e):
 
 @app.route("/home/productos")
 def productos_route():
-    print("##################ENTRE###########")
+    print("RUTA: productos_route")
     return productos.productos()
 
 @app.route("/home/productos/agregarProducto", methods=['GET', 'POST'])
 def agregar_producto():
-    return render_template("agregarProducto.html"),agregarProductos.agregarProducto()
+    return agregarProductos.agregarProducto()
+
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=4000)
+    app.run(debug=True, port=4000)    

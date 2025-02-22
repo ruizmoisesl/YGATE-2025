@@ -1,11 +1,10 @@
 from flask import Flask, session, request, redirect, url_for, render_template , Blueprint
-from flask_mysqldb import MySQL
 import secrets
 import os
 import base64
 import bcrypt
 from werkzeug.utils import secure_filename
-import MySQLdb
+import mysql.connector as MySQLdb
 
 app = Flask(__name__)
 agregar = Blueprint('agregar', __name__)
@@ -16,11 +15,10 @@ try:
         passwd="FjhgEsSoU9KepA4XgIxR",
         db="bogk9mha8ehn5owk1qeo"
     )
-    print("Conexión exitosa")
     
 except MySQLdb.Error as e:
     print(f"Error al conectar: {e}")
-@agregar.route('/agregarProducto', methods=['GET', 'POST'])
+@app.route("/agregarProducto", methods=['GET', 'POST'])
 def agregarProducto():
     print("######################!!!!!! ACABE DE ENTRAR A LA FUNCION 'AGREGARPRODUCTO'!!!!!!!!!!!#################### " )
     if request.method == 'POST':
@@ -37,13 +35,15 @@ def agregarProducto():
         mysql.commit()
         cursor = mysql.cursor()
         cursor.execute('SELECT ID_Producto FROM Productos ORDER BY ID_Producto DESC LIMIT 1')
-        id = cursor.fetchone()
+        id = cursor.fetchone()[0]
         cursor.close()
         cursor = mysql.cursor()
-        cursor.execute('INSERT INTO Detalles_Producto (ID_Producto,Color,Precio_Base,Precio_Final,Stock) VALUES (%s, %s , %s, %s, %s)',(id,color,precioB,precioF,stock))
+        cursor.execute('INSERT INTO Detalles_Producto (ID_Producto,Color,Precio_Base,Precio_Final,Stock) VALUES (%s, %s , %s, %s, %s)',(id,color,precioB,precioF,stock, ))
         mysql.commit()
         print("######################!!!!!! ACABE DE AGREGAR UN PRODUCTO'!!!!!!!!!!!#################### " )
         return redirect(url_for('productos_route'))
     else:
         print("ERROR")
+
+    return render_template('agregarProducto.html')
 

@@ -22,6 +22,7 @@ header{
     flex-direction: row;
     align-items: center;
     position: fixed;
+    background: white;
     top: 0;
     left: 0;
     width: 100vw;
