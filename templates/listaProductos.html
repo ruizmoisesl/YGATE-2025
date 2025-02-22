@@ -1,5 +1,5 @@
 {% for producto,productos in productos %}
-          <tr>
+          <tr data-num="{{ producto[0] }}" data-name="{{ productos[0] }}" data-marca="{{ productos[1] }}" data-referencia="{{ productos[2] }}" data-color="{{ producto[4] }}" data-precioB="{{ producto[1] }}" data-precioF="{{ producto[2] }}" data-stock="{{ producto[3] }}">
             <td>{{ producto[0] }}</td>
             <td>{{ productos[0] }}</td>
             <td>{{ productos[1] }}</td>

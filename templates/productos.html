@@ -38,11 +38,11 @@
         </div>
         <div class="opciones-productos">
           <div class="agregar"><a href="/home/productos/agregarProducto"><h1>+</h1></div></a>
-          <div class="editar" onclick="activarEdicion()"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
+          <div class="editar" id="toggleSelectBtn" onclick="toggleSelection()"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
           <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
         </div>
       </div>
-      <table>
+      <table id="numberTable">
         <thead>
           <tr>
               <th>Código de Producto</th>
@@ -69,6 +69,44 @@
   </div>
 
   <script>
+
+    let seleccionActiva = false;
+
+        function toggleSelection() {
+            seleccionActiva = !seleccionActiva;
+
+            const button = document.getElementById('toggleSelectBtn');
+            const table = document.getElementById('numberTable');
+            const filas = document.querySelectorAll('tr[data-num]');
+
+            if (seleccionActiva) {
+                button.textContent = 'Desactivar selección';
+                table.classList.add('active');
+                filas.forEach(fila => {
+                    fila.classList.add('selectable');
+                    fila.addEventListener('click', seleccionarFila);
+                });
+            } else {
+                button.textContent = 'Activar selección';
+                table.classList.remove('active');
+                filas.forEach(fila => {
+                    fila.classList.remove('selectable');
+                    fila.removeEventListener('click', seleccionarFila);
+                });
+            }
+        }
+
+        function seleccionarFila(event) {
+            const numero = event.currentTarget.getAttribute('data-num');
+            const nombre = event.currentTarget.getAttribute('data-name');
+            const marca = event.currentTarget.getAttribute('data-marca');
+            const referencia = event.currentTarget.getAttribute('data-referencia');
+            const color = event.currentTarget.getAttribute('data-color');
+            const precioB = event.currentTarget.getAttribute('data-precioB');
+            const precioF = event.currentTarget.getAttribute('data-precioF');
+            const stock = event.currentTarget.getAttribute('data-stock');
+            window.location.href = `/home/productos/editar?numero=${numero}&nombre=${nombre}&marca=${marca}&referencia=${referencia}&color=${color}&precioB=${precioB}&precioF=${precioF}&stock=${stock}`;
+        }
 
     
     document.querySelectorAll('.categoria-nav').forEach(button => {

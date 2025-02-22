@@ -1,4 +1,4 @@
-from flask import  render_template
+from flask import  render_template , Flask , Blueprint , current_app
 import MySQLdb
 
 
@@ -18,12 +18,7 @@ def productos():
         passwd="FjhgEsSoU9KepA4XgIxR",
         db="bogk9mha8ehn5owk1qeo"
     )
-    print("Conexión exitosa")
-except MySQLdb.Error as e:
-    print(f"Error al conectar: {e}")
-
-def productos():
-    try:
+        print("Conexión exitosa")
         cursor = mysql.cursor()
         cursor.execute('SELECT ID_Producto,Precio_Base,Precio_Final,Stock,Color FROM Detalles_Producto')
         user = cursor.fetchall()
@@ -32,7 +27,7 @@ def productos():
         cursor.execute('SELECT Nombre,Marca,Referencia FROM Productos')
         productos = cursor.fetchall()
         cursor.close()
-        print(productos)
+        print(productos,"Productos")
         return render_template("productos.html",productos=zip(user,productos))
         
     except Exception as e:

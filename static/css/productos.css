@@ -220,3 +220,10 @@ a {
   cursor: pointer;
   font-size: inherit;
 }
+table.active {
+  background-color: #d0f0c0;
+}
+tr.selectable:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
