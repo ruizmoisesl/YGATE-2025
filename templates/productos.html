@@ -39,7 +39,7 @@
         <div class="opciones-productos">
           <div class="agregar"><a href="/home/productos/agregarProducto"><h1>+</h1></div></a>
           <div class="editar" id="toggleSelectBtn" onclick="toggleSelection()"><img src="{{ url_for('static', filename='img/editar.png') }}" alt=""></a></div>
-          <div class="borrar"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
+          <div class="borrar" id="borrador" onclick="eliminar()"><img src="{{ url_for('static', filename='img/eliminar.png') }}" alt=""></div>
         </div>
       </div>
       <table id="numberTable">
@@ -71,6 +71,35 @@
   <script>
 
     let seleccionActiva = false;
+    let borrador = false;
+        function eliminar() {
+          borrador = !borrador;
+          const button = document.getElementById('borrador');
+          const table = document.getElementById('numberTable');
+          const filas = document.querySelectorAll('tr[data-num]');
+
+          if (borrador) {
+            button.textContent = 'Desactivar selección';
+            table.classList.add('active');
+            filas.forEach(fila => {
+                fila.classList.add('selectable');
+                fila.addEventListener('click', borrarFila);
+            });
+        }else {
+          button.textContent = 'Activar selección';
+          table.classList.remove('active');
+          filas.forEach(fila => {
+              fila.classList.remove('selectable');
+              fila.removeEventListener('click', borrarFila);
+          });
+      }
+
+    }
+
+    function borrarFila(event) {
+      const numero = event.currentTarget.getAttribute('data-num');
+      window.location.href = `/borrarProducto?numero=${numero}`;
+  }
 
         function toggleSelection() {
             seleccionActiva = !seleccionActiva;

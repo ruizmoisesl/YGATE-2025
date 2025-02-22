@@ -1,11 +1,13 @@
 from flask import Flask , render_template , Blueprint , request
-from routes import index,login,register,home,information,statistics,sales,decode,productos,errors,agregarProductos
+from routes import index,login,register,home,information,statistics,sales,decode,productos,errors,agregarProductos,borrar
 from routes.agregarProductos import agregar
 from routes.editar import editarP
+from routes.borrar import borrar
 
 app = Flask(__name__)
 app.register_blueprint(agregar)
 app.register_blueprint(editarP)
+app.register_blueprint(borrar)
 
 @app.route('/')
 def index_route():
@@ -63,5 +65,10 @@ def editarProducto():
     stock = request.args.get('stock')
     print(numero,nombre)
     return render_template("editar.html",numero=numero,nombre=nombre,marca=marca,referencia=referencia,color=color,precioB=precioB,precioF=precioF,stock=stock)
+@app.route("/home/productos/borrar", methods=['GET','POST'])
+def borrarProducto():
+    numero = request.args.get('numero')
+    retorno = borrar.borrarPro()
+    return retorno , numero
 if __name__ == "__main__":
     app.run(debug=True, port=4000)    
