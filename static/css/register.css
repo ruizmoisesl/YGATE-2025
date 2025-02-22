@@ -13,7 +13,7 @@
     inset: 0;
     border: solid transparent;
     margin-top: 80px;
-    overflow: auto;
+    overflow: hidden;
 }
 
 
@@ -120,4 +120,25 @@ a:hover{
     background-color: #e9e91d;
     cursor: pointer;
     color: black;
+}
+
+
+
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.file-label:hover {
+    background-color: #0056b3;
+}
+
+#file-name {
+    margin-left: 10px;
+    font-size: 14px;
 }

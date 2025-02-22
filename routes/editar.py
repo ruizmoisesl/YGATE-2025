@@ -5,23 +5,14 @@ import base64
 import bcrypt
 from werkzeug.utils import secure_filename
 import mysql.connector as MySQLdb
+from routes.database import cursor,mysql
 
 app = Flask(__name__)
 editarP = Blueprint('editarP', __name__)
-mysql = None
+
 
 @editarP.route("/editarProducto", methods=['GET', 'POST'])
 def editarPro():
-    try:
-        mysql = MySQLdb.connect(
-        host="bogk9mha8ehn5owk1qeo-mysql.services.clever-cloud.com",
-        user="udq78qvouupy05hi",
-        passwd="FjhgEsSoU9KepA4XgIxR",
-        db="bogk9mha8ehn5owk1qeo"
-    )
-    
-    except MySQLdb.Error as e:
-        print(f"Error al conectar: {e}")
     if request.method == 'POST':
         nombre = request.form['nombre']
         marca = request.form['marca']
@@ -32,7 +23,7 @@ def editarPro():
         stock = request.form['stock']
         numero = request.form['id']
         print(nombre,marca,referencia,color,precioB,precioF,stock,numero,"editar")
-        cursor = mysql.cursor()
+        
         cursor.execute('UPDATE Productos SET Nombre=%s,Marca=%s,Referencia=%s WHERE ID_Producto = %s',(nombre,marca,referencia,numero))
         cursor.execute('UPDATE Detalles_Producto SET Color=%s,Precio_Base=%s,Precio_Final=%s,Stock=%s WHERE ID_Producto = %s',(color,precioB,precioF,stock,numero))
         mysql.commit()
