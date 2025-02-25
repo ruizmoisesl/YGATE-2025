@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, request
+from flask import render_template, url_for, redirect, request, session
 
 
 products = {
@@ -23,4 +23,7 @@ products = {
 
 
 def sales():
-    return render_template('sales.html',productos=products['productos'])
+    
+    datos_tienda = session.get('datos_tienda')
+
+    return render_template('sales.html',productos=products['productos'], tienda = datos_tienda)
