@@ -92,7 +92,7 @@
           const table = document.getElementById('numberTable');
           const filas = document.querySelectorAll('tr[data-num]');
           const imagen = document.getElementById('imagenEliminar');
-
+          console.log(borrador)
           if (borrador) {
             imagen.src = "{{ url_for('static', filename='img/x.png') }}" 
             table.classList.add('active');
@@ -105,6 +105,7 @@
           table.classList.remove('active');
           filas.forEach(fila => {
               fila.classList.remove('selectable');
+              fila.removeEventListener('click', borrarFila);
               
           });
       }
