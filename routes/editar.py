@@ -29,6 +29,7 @@ def editarPro():
         cursor.execute('UPDATE Detalles_Producto SET Color=%s,Precio_Base=%s,Precio_Final=%s,Stock=%s WHERE ID_Producto = %s',(color,precioB,precioF,stock,numero))
         conexion.commit()
         cursor.close()
+        conexion.close()
         return redirect(url_for('productos_route'))
     else:
         print("ERROR")

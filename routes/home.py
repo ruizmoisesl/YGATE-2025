@@ -1,4 +1,5 @@
-from flask import render_template, url_for, redirect, request
+from flask import render_template, url_for, redirect, request, session
 
 def home():
-    return render_template('home.html')
+    datos_tienda = session.get('datos_tienda')
+    return render_template('home.html', tienda = datos_tienda)

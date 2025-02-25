@@ -3,7 +3,11 @@
 </div>
 <div class="content-header">
     <div class="profile">
+        {% if tienda[5] %}
+        <a href="/home/profile"><img src="{{tienda[4]}}" alt=""></a>
+        {% else %}
         <a href="/home/profile"><img src="{{ url_for('static', filename='img/icons/profile.png') }}" alt=""></a>
+        {% endif %}
     </div>
     <nav>
         <a href="/home/productos">Productos</a>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Negocio</title>
+    <title>{{tienda[1]}}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/productos.css') }}">
+    <link rel="shortcut icon" href="{{tienda[4]}}" type="image/x-icon">
 </head>
 <body class="hidden">
   <div class="preloader">
@@ -15,7 +16,7 @@
     {% include 'components/header.html'   %}
   </header>
   <div class="nombreE">
-    <h1>TU NEGOCIO</h1>
+    <h1>{{tienda[1]}}</h1>
   </div>
   <div class="contenido">
 

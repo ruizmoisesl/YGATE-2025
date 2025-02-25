@@ -26,23 +26,34 @@
         </nav>
     </header>
     <main>
+
         <div class="container">
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            
             <div class="titulo">
                 <span class="logor">
-                    <a href="#"><img
-                            src="{{ url_for('static', filename='img/icons/ygate.png') }}"
-                            alt="Y'gate"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='img/icons/ygate.png') }}" alt="Y'gate"></a>
                 </span>
             </div>
             <div>
                 <form class="formu" action="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <input type="text"  name="nombre" placeholder="Nombre de la empresa" autocomplete="off">
+                        <input type="text" name="nombre" placeholder="Nombre de la empresa" autocomplete="off">
                         <input type="email" name="email" placeholder="Email" autocomplete="off">
-                        <input type="number"  name="telefono" placeholder="Telefono" autocomplete="off">
-                        <input type="text"  name="nit" placeholder="nit" autocomplete="off">
-                        <input type="password"  name="contraseña" placeholder="contraseña" autocomplete="off">
-                        <input type="password"  name="repetir-contraseña" placeholder="Repetir contraseña" autocomplete="off">
+                        <input type="number" name="telefono" placeholder="Telefono" autocomplete="off">
+                        <input type="text" name="nit" placeholder="nit" autocomplete="off">
+                        <input type="password" name="contraseña" placeholder="contraseña" autocomplete="off">
+                        <input type="password" name="repetir-contraseña" placeholder="Repetir contraseña"
+                            autocomplete="off">
                         <div>
                             <input type="file" id="logo" class="custom-file-upload" accept="image/*" name="logo">
                             <span id="file-name">Logo no seleccionado</span>
@@ -65,11 +76,11 @@
     })
     home.addEventListener('click', function () {
         window.location.href = '/'
-    }) 
+    })
 
-    document.getElementById("logo").addEventListener("change", function() {
-            let fileName = this.files.length > 0 ? this.files[0].name : "Ningún archivo seleccionado";
-            document.getElementById("file-name").textContent = `Logo Seleccionado: ${fileName}`;
+    document.getElementById("logo").addEventListener("change", function () {
+        let fileName = this.files.length > 0 ? this.files[0].name : "Ningún archivo seleccionado";
+        document.getElementById("file-name").textContent = `Logo Seleccionado: ${fileName}`;
     });
 </script>
 
