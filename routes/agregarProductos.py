@@ -1,4 +1,4 @@
-from flask import Flask, session, request, redirect, url_for, render_template , Blueprint
+from flask import Flask, session, request, redirect, url_for, render_template , Blueprint , session
 import secrets
 import os
 import base64
@@ -15,6 +15,8 @@ mysql = None
 def agregarProducto():
     conexion = iniciar_connection()
     cursor = conexion.cursor()
+    datos_tienda = session.get('datos_tienda')
+    nit = session.get('nit')
     print("######################!!!!!! ACABE DE ENTRAR A LA FUNCION 'AGREGARPRODUCTO'!!!!!!!!!!!#################### " )
     if request.method == 'POST':
         nombre = request.form['nombre']
@@ -26,7 +28,7 @@ def agregarProducto():
         stock = request.form['stock']
         
 
-        cursor.execute('INSERT INTO Productos (NOMBRE,MARCA,REFERENCIA) VALUES (%s, %s , %s)',(nombre,marca,referencia))
+        cursor.execute('INSERT INTO Productos (NOMBRE,MARCA,REFERENCIA,tienda) VALUES (%s, %s , %s ,%s)',(nombre,marca,referencia,nit))
         conexion.commit()
         cursor.execute('SELECT ID_Producto FROM Productos ORDER BY ID_Producto DESC LIMIT 1')
         id = cursor.fetchone()[0]

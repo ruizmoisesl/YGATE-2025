@@ -3,6 +3,7 @@ import bcrypt
 from database import iniciar_connection
 
 def login():
+    nit = 0
 
     if request.method == 'POST':
         email = request.form['email']
@@ -21,14 +22,15 @@ def login():
             return redirect(url_for('login_route'))
         
         session['datos_tienda'] = tienda
-        
+        session['nit'] = tienda[0]
         contraseña_db = tienda[5].encode()      
-
         if bcrypt.checkpw(contraseña.encode(), contraseña_db):
-            return redirect(url_for('home_route'))
+            print(nit,"313#!#!#!#!#!##!#!#!#!")
+            return redirect(url_for('productos.productos'))
+
         else:
             flash('Contraseña incorrecta. Intenta de nuevo')
             return redirect(url_for('login_route'))
+
         
-        
-    return render_template('login.html')
+    return render_template('login.html') 

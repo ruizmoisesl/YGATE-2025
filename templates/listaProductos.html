@@ -1,12 +1,12 @@
-{% for producto,productos in productos %}
-          <tr data-num="{{ producto[0] }}" data-name="{{ productos[0] }}" data-marca="{{ productos[1] }}" data-referencia="{{ productos[2] }}" data-color="{{ producto[4] }}" data-precioB="{{ producto[1] }}" data-precioF="{{ producto[2] }}" data-stock="{{ producto[3] }}">
-            <td>{{ producto[0] }}</td>
+{% for productos in productos %}
+          <tr data-num="{{ productos[3] }}" data-name="{{ productos[0] }}" data-marca="{{ productos[1] }}" data-referencia="{{ productos[2] }}" data-color="{{ productos[7] }}" data-precioB="{{ productos[4] }}" data-precioF="{{ productos[5] }}" data-stock="{{ productos[6] }}">
+            <td>{{ productos[3] }}</td>
             <td>{{ productos[0] }}</td>
             <td>{{ productos[1] }}</td>
             <td>{{ productos[2] }}</td>
-            <td>{{ producto[4] }}</td> 
-            <td>{{ producto[1] }}</td> 
-            <td>{{ producto[2] }}</td> 
-            <td>{{ producto[3] }}</td> 
+            <td>{{ productos[7] }}</td> 
+            <td>{{ productos[4] }}</td> 
+            <td>{{ productos[5] }}</td> 
+            <td>{{ productos[6] }}</td> 
           </tr>
 {% endfor %}

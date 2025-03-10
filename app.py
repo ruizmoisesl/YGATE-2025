@@ -3,11 +3,13 @@ from routes import index,login,register,home,information,statistics,sales,decode
 from routes.agregarProductos import agregar
 from routes.editar import editarP
 from routes.borrar import borrar
+from routes.productos import productosBP
 
 app = Flask(__name__)
 app.register_blueprint(agregar)
 app.register_blueprint(editarP)
 app.register_blueprint(borrar)
+app.register_blueprint(productosBP)
 app.secret_key = 'djaoidjaoiedjoaiedjoaeijojd'
 
 @app.route('/')
@@ -47,7 +49,7 @@ def page_not_found(e):
 
 @app.route("/home/productos")
 def productos_route():
-    print("RUTA: productos_route")
+    print("RUTA: productos_route #!#!#!#!#!##!#!#!#!")
     return productos.productos()
 
 @app.route("/home/productos/agregarProducto", methods=['GET', 'POST'])
